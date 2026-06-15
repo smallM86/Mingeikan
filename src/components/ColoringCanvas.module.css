@@ -1,0 +1,105 @@
+.canvasContainer {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-tertiary);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border-subtle);
+  overflow: hidden;
+  min-height: 400px;
+
+  /* Subtle grid pattern */
+  background-image:
+    radial-gradient(circle, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+
+.svgWrapper {
+  transform-origin: center center;
+  transition: transform 0.15s var(--ease-out);
+  max-width: 100%;
+  max-height: 100%;
+  padding: var(--space-xl);
+}
+
+.svg {
+  width: 100%;
+  height: 100%;
+  max-width: 500px;
+  max-height: 500px;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-lg);
+  background: #f5f0e8;
+}
+
+/* Regions */
+.region {
+  transition: all var(--duration-fast) var(--ease-out);
+}
+
+.regionClickable {
+  cursor: pointer;
+}
+
+.regionClickable:hover {
+  filter: brightness(1.1) !important;
+}
+
+/* Paint splash effect */
+.paintSplash {
+  position: fixed;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: var(--z-float);
+  transform: translate(-50%, -50%);
+  animation: paintSplash 0.5s var(--ease-out) forwards;
+}
+
+/* Tooltip */
+.tooltip {
+  position: absolute;
+  bottom: var(--space-md);
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  gap: var(--space-sm);
+  padding: var(--space-xs) var(--space-md);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  color: var(--fg-secondary);
+  white-space: nowrap;
+  pointer-events: none;
+  animation: fadeInUp var(--duration-fast) var(--ease-out);
+}
+
+.tooltipSwatch {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--border-medium);
+  flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+  .canvasContainer {
+    min-height: 300px;
+  }
+
+  .svgWrapper {
+    padding: var(--space-md);
+  }
+
+  .svg {
+    max-width: 100%;
+    max-height: 400px;
+  }
+}
